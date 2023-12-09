@@ -1,0 +1,44 @@
+#fi-1 , #fi-2, #fi-3 , #fi-4 , #fi-5, #fi-6 , #fi-7 , #fi-8, #fi-9{
+  display: none;
+}
+.box-btn-info-person{
+  display: flex;
+  align-items: inherit;
+  justify-content: center;
+  padding: 4px 0;
+  button{
+    background-color: #5f9ea0;
+    color: white;
+    font-size: 14px;
+    border-radius: 19px;
+    border: 0;
+    width: 175px;
+    height: 60px;
+    margin: 2px;
+    transition: 200ms all;
+  }
+  button.active{
+    background-color: #3eff07f7;
+    color: black;
+    transform: scale(0.90);
+  }
+}
+.box-date{
+  input{
+    margin: 0 3px;
+  }
+}
+.box-table-edit-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.btn-info{
+  background-color: #007bff;
+  color: white;
+  border: 0;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+}

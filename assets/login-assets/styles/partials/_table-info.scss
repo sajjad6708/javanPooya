@@ -1,0 +1,43 @@
+.title-col-table {
+  background-color: #e2e5e73b;
+  text-align: right;
+  font-size: 14px;
+  color: #a9a7a7;
+  font-weight: 800;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.multi-line-title {
+  max-height: 345px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical !important;
+}
+.title-name {
+  font-weight: 700;
+  font-size: 14px;
+  width: 135px;
+  white-space: nowrap;
+}
+.desc-name {
+  font-size: 10px;
+  font-weight: 400;
+  width: 135px;
+  white-space: nowrap;
+  color: #cccccc;
+}
+.image-customer {
+  width: 40px;
+  height: 40px;
+
+}
+td{
+  vertical-align: revert!important;
+  text-align: right;
+  white-space: nowrap;
+  border: 1px solid #ededed;
+
+}

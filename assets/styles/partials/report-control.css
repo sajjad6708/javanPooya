@@ -1,0 +1,29 @@
+.box-btn-report-control {
+  display: flex;
+  align-items: inherit;
+  justify-content: space-around;
+  margin: 20px;
+  padding: 5px;
+}
+@media screen and (max-width: 767.98px) {
+  .box-btn-report-control {
+    flex-flow: column;
+    align-items: center;
+  }
+}
+.box-btn-report-control button {
+  background-color: cadetblue;
+  color: white;
+  font-size: 13px;
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 125px;
+  padding: 3px;
+}
+@media screen and (max-width: 767.98px) {
+  .box-btn-report-control button {
+    margin: 5px 0;
+  }
+}
+
+/*# sourceMappingURL=report-control.css.map */

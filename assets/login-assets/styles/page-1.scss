@@ -1,0 +1,113 @@
+.wrapper-top-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  background-color: #fffafae6;
+  box-shadow: 0px 0px 4px 3px #e1d1c8d6;
+  list-style-type: none;
+  margin: 40px 0;
+  padding: 0;
+  @media screen and(max-width: 767.98px){
+    flex-flow: column;
+
+  }
+  .top-menu-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: auto;
+    padding: 5px 12px;
+    margin-left: 20px;
+    position: relative;
+
+    @media screen and(max-width: 767.98px){
+      margin-bottom: 10px;
+    }
+  }
+  .title-item{
+    font-weight: 700;
+    white-space: nowrap;
+    color: #585858;
+    margin-left: 8px;
+    font-size: 18px;
+
+
+  }
+  .item-before{
+    &:before{
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: -12px;
+      width: 2px;
+      height: 20px;
+      background-color: #8b5133;
+      @media screen and(max-width: 767.98px){
+        display: none;
+      }
+    }
+  }
+  .desc-item{
+    font-weight: 800;
+    white-space: nowrap;
+    font-size: 18px;
+
+  }
+  .logo-menu{
+    width: 85px;
+    margin: 10px 20px;
+    @media screen and(max-width: 991.98px){
+     padding-right: 10px;
+    }
+
+  }
+}
+.wrapper-section-two{
+  background-color: #fffafae6;
+  box-shadow: 0px 0px 4px 3px #e1d1c8d6;
+  padding: 50px 0;
+}
+.box-link{
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  background-color: #2b3ac6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 1px 6px #c1c1c1, 0 0 0 4px #fff inset!important;
+  &:hover{
+    .title-link{
+      font-weight: 800;
+    }
+  }
+  @media screen and(max-width: 767.98px) {
+    margin-bottom: 20px;
+    
+  }
+
+
+
+  .icon-cart , .icon-table{
+    background-color: white;
+    padding: 11px;
+    border-radius: 100%;
+    color: #2b3ac6;
+    box-shadow: 0 0 1px 6px #c1c1c1, 0 0 0 4px #fff inset;
+    position: absolute;
+    bottom: 55px;
+    font-size: 20px;
+    z-index: 1;
+
+  }
+  .title-link{
+    z-index: 1;
+    color: white;
+    transition: 200ms all;
+  }
+}

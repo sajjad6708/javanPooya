@@ -1,0 +1,216 @@
+<html lang="fa">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>File Upload and Text Manipulation</title>
+
+	<link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<style>
+	#back{
+		float: left;
+	}
+	.card-body{
+		background-color: #E7cc8f;
+	}
+	</style>
+</head>
+
+
+<body>
+	<div class="container"><br><br><br>
+
+		<div class="card text-center">
+			<div class="card-header ">
+				<h2>مدیریت بارکد های ثبت شده</h2>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-4">
+						<div class="alert alert-danger" role="alert">
+							<form>
+								<div class="form-group ">
+									<label for="exampleFormControlFile1"> <b> انتخاب فایل متن
+										</b>
+
+									</label>
+									<input type="file" class="form-control-file "
+										id="fileUpload" multiple>
+
+								</div>
+
+							</form>
+						</div>
+
+					</div>
+					<div class="col-8">
+						<div id="fileNames"> </div>
+					</div>
+
+
+				</div>
+				<div class="row">
+					<div class="col-5">
+						<div class="form-group">
+							<input class="form-control text" type="text" id="text1"
+								placeholder="مقدار مورد نظر را وارد نمایید "><br>
+							<textarea class="form-control text" id="textarea2" rows="10"
+								readonly></textarea>
+						</div>
+					</div>
+					<div class="col-7">
+						<div class="form-group">
+							<textarea class="form-control text" id="textarea1" rows="13"
+								readonly></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+
+				</div>
+				<button type="button" id="createFile" class="btn btn-success">ایجاد فایل </button>
+				<a href="../../../home/home.php"><button type="button" id="back" class="btn btn-info"> بازگشت </button></a>
+
+			</div>
+			<div class="card-footer text-muted">
+				edit By Sajjad
+			</div>
+		</div>
+
+	</div>
+
+	</div>
+
+	<script src="assets/js/jquery-3.5.1.min.js"></script>
+	<script src="assets/js/popper.js"></script>
+	<script src="assets/js/bootstrap/bootstrap.min.js"></script>
+	<script>
+		var fileUpload = document.getElementById("fileUpload");
+
+		var textarea1 = document.getElementById("textarea1");
+
+		var text1 = document.getElementById("text1");
+
+		var textarea2 = document.getElementById("textarea2");
+
+
+
+		$('#fileUpload').on('change', function (e) {
+			var files = e.target.files;
+
+			for (var i = 0; i < files.length; i++) {
+				var fileName = files[i].name;
+				var f = fileName.replace('.txt', "");
+				var fName = f + '  ' + ', ';
+				$('#fileNames').append(fName);
+			}
+
+			for (var i = 0; i < files.length; i++) {
+				var file = files[i];
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					var contents = e.target.result;
+					var currentContent = $('#textarea1').val();
+					var newContent = currentContent + '\n' + contents;
+
+					$('#textarea1').val(newContent);
+				}
+
+				reader.readAsText(file);
+			}
+		});
+
+		document.getElementById("text1").addEventListener("keydown", function (event) {
+
+			if (event.key === "Enter") {
+				event.preventDefault();
+				var contents = textarea1.value;
+				var contentRe = textarea2.value;
+
+				var contentsArray = contents.split("\n");
+				var contentReArray = contentRe.split("\n");
+				var searchString = text1.value;
+				var index = contentsArray.indexOf(searchString);
+
+
+				if (index !== -1 && !contentReArray.includes(searchString)) {
+					
+
+					let filteredArray = removeFromBarcodes(contentsArray, searchString);
+
+					contentsArray = filteredArray[0];
+					contentReArray = filteredArray[1];
+
+					
+					textarea2.innerHTML += contentReArray.join('\n') + "\n";
+					textarea1.value = contentsArray.join('\n');
+					var audio = new Audio("audio/removeSound.wav");
+					audio.play();
+
+
+				} else if (!contentsArray.includes(searchString) && contentReArray.includes(searchString)) {
+					var audio = new Audio("audio/dubSound.wav");
+					audio.play();
+				}
+				else if (!contentsArray.includes(searchString) && !contentReArray.includes(searchString)) {
+					var audio = new Audio("audio/errorSound.wav");
+					audio.play();
+				};
+				$("#text1").val("");
+			}
+
+
+		});
+
+		$("#createFile").click(function () {
+
+			var fileName = "لیست موجودی محصول.txt";
+			var contents = textarea1.value;
+			var file = new Blob([contents], { type: "text/plain;charset=utf-8" });
+			saveAs(file, fileName);
+		});
+
+
+		function saveAs(blob, fileName) {
+
+			var url = URL.createObjectURL(blob);
+			var a = document.createElement("a");
+			document.body.appendChild(a);
+			a.style = "display: none";
+			a.href = url;
+			a.download = fileName; a.click();
+			window.URL.revokeObjectURL(url);
+			document.body.removeChild(a);
+			var audio = new Audio("audio/createFileSound.wav");
+			audio.play();
+			function load() {
+
+			location.reload();
+
+			}
+			var dealy = 3000;
+			setTimeout(load, dealy);
+		}
+
+
+
+
+		function removeFromBarcodes(arr, num) {
+			let removeArr = [];
+			let filterArr = arr.filter(function (item) {
+				if (item === num) {
+					removeArr.push(item);
+					return false;
+				}
+				else {
+					return true;
+				}
+			});
+			return [filterArr, removeArr];
+		}
+	</script>
+</body>
+
+</html>

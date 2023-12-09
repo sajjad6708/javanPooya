@@ -1,0 +1,89 @@
+.box-btn-report{
+  display: flex;
+  align-items: initial;
+  justify-content: space-around;
+  padding: 5px;
+  background-color: #d0d3c0;
+  height: 60px;
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  border-radius: 5px;
+  @media screen and (max-width: 991.98px){
+
+    height: auto;
+  }
+  @media screen and (max-width: 767.98px){
+    flex-flow: column;
+    align-items: center;
+    height: auto;
+  }
+  button{
+    background-color: cadetblue;
+    color: white;
+    font-size: 13px;
+    border-radius: 5px;
+    border: 1px solid white;
+    width: 125px;
+    padding: 3px;
+
+    @media screen and (max-width: 767.98px){
+     margin: 5px 0;
+      white-space: nowrap;
+      height: auto;
+      width: 225px;
+
+    }
+  }
+}
+.table-report{
+  width: calc(100% - 30px);
+  background-color: #edeaea;
+  margin: 10px auto;
+  @media screen and (max-width: 767.98px){
+    overflow: auto;
+  }
+  thead{
+    background: #5f9ea0;
+    color: white;
+  }
+  td{
+    border: 1px solid gainsboro;
+  }
+  tr{
+    border-top: 1px solid #edeaea;
+  }
+  caption{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+  }
+
+}
+.table-report-person{
+  width: 97%;
+  margin: 0 auto;
+  background-color: #edeaea;
+  thead{
+    background: #5f9ea0;
+    color: white;
+  }
+  tbody{
+    background: #f1f1f1;
+    color: #585858;
+  }
+  td{
+    border: 1px solid gainsboro;
+    white-space: nowrap;
+  }
+  caption{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    background-color: cadetblue;
+    border: 1px solid white;
+  }
+}
+.wrapper-box-filter{
+  margin: 15px 0;
+  padding: 15px 0;
+}

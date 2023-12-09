@@ -1,0 +1,42 @@
+@font-face {
+       font-family: 'shabnam';
+       font-style: normal;
+       font-weight: 400;
+       src: url('fonts/shabnam.eot');
+       src: url('fonts/shabnam.eot?#iefix') format('embedded-opentype'),
+               url('fonts/shabnam.woff2') format('woff2'),
+               url('fonts/shabnam.woff') format('woff'),
+               url('fonts/shabnam.ttf') format('truetype');
+               }
+
+
+
+body{
+       direction: rtl;
+       text-align: right;
+       font-family:  shabnam;
+}
+
+.text{
+       direction: left;
+       text-align: left !important;  
+       font-size: 20px;
+       background: #F0F4C3;
+}
+
+.card-header{
+       background:#f3fd80;
+}
+.card-body{
+       background: #f4eb98;
+}
+
+#fileNames{
+       width: 700px;
+       height: 90px;
+     padding: 15px;
+       text-align: right;
+       direction: rtl;
+       background-color: rgb(211, 226, 168);
+      border-radius: 5px;
+}
